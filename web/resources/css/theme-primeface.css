@@ -1,0 +1,369 @@
+/* ------- Загрузка файла ------------- */
+
+.ui-fileupload-buttonbar .ui-button {
+    vertical-align: middle;
+}
+
+.ui-button {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    text-decoration: none!important;
+    cursor: pointer;
+    text-align: center;
+    zoom: 1;
+    overflow: visible;
+}
+
+.ui-widget-header {
+    text-align: center;
+}
+.ui-widget-header { 
+    background: #007bff; 
+    color: #FFF; 
+}
+
+.ui-corner-top {
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.ui-corner-bottom {
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.ui-messages-info-icon, .ui-messages-warn-icon, .ui-messages-error-icon, .ui-messages-fatal-icon, .ui-message-info-icon, .ui-message-warn-icon, .ui-message-error-icon, .ui-message-fatal-icon {
+    background: none;
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.ui-fileupload-row {
+    display: table-row;
+}
+
+ui-icon-close {
+    display: none;
+}
+
+.ui-fileupload-cancel {
+    visibility: hidden;
+    display: none;
+}
+
+/* ------- Кнопки ------------- */
+
+.ui-button-text-only .ui-button-text {
+
+}
+.ui-button .ui-button-text {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* ------- Панели / div  ------------- */
+
+
+.ui-widget-content {
+
+}
+.ui-widget-content {
+    border: 1px solid #007bff;
+    background: transparent;
+    color: #6c757d;
+}
+
+/* ------- Error  ------------- */
+
+.ui-messages-error, .ui-message-error {
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+}
+
+.ui-messages-info, .ui-messages-warn, .ui-messages-error, .ui-messages-fatal {
+    border: 1px solid;
+    margin: 10px 0;
+    padding: 10px 10px 10px 10px;
+}
+
+.ui-messages-error-icon {
+    width: 0px;
+    display: none;
+}
+
+.ui-messages-info-summary, .ui-messages-warn-summary, .ui-messages-error-summary, .ui-messages-fatal-summary, .ui-message-info-summary, .ui-message-warn-summary, .ui-message-error-summary, .ui-message-fatal-summary {
+    margin-left: 0px; 
+    font-weight: normal;
+}
+
+/* ------- Paginator  ------------- */
+/*
+.ui-paginator.ui-paginator-top {
+    border-bottom: 0 none;
+}
+.ui-datagrid .ui-paginator-top {
+    border-bottom: 0 none;
+}
+.ui-datagrid .ui-paginator {
+    text-align: center;
+}
+.ui-paginator, .ui-paginator-page {
+    background: none !important;
+    border: none !important;
+}
+.ui-paginator {
+    margin: 0;
+    text-align: center;
+    padding: 2px;
+}
+
+.ui-paginator.ui-paginator-top {
+    border-bottom: 0 none;
+}
+.ui-datagrid .ui-paginator-top {
+    border-bottom: 0 none;
+}
+.ui-widget-header {
+    border: 1px solid #a8a8a8;
+    background: #c4c4c4 url(/MyPictureBootstrap/javax.faces.resource/images/ui-bg_highlight-soft_100_c4c4c4_1x100.png.xhtml?ln=primefaces-aristo) 50% 50% repeat-x;
+    background: #c4c4c4 linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    background: #c4c4c4 -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+    background: #c4c4c4 -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    color: #333;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+.ui-widget-header {
+    border: 1px solid #a8a8a8;
+    background: #c4c4c4 url(/MyPictureBootstrap/javax.faces.resource/images/ui-bg_highlight-soft_100_c4c4c4_1x100.png.xhtml?ln=primefaces-aristo) 50% 50% repeat-x;
+    background: #c4c4c4 linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    background: #c4c4c4 -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+    background: #c4c4c4 -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    color: #333;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+.ui-widget-header {
+    background: #007bff;
+    color: #FFF;
+}
+.ui-widget-header {
+    text-align: center;
+}
+.ui-widget-header {
+    text-align: center;
+}
+.ui-widget-header {
+    border: 1px solid #a8a8a8;
+    background: #c4c4c4 url(/MyPictureBootstrap/javax.faces.resource/images/ui-bg_highlight-soft_100_c4c4c4_1x100.png.xhtml?ln=primefaces-aristo) 50% 50% repeat-x;
+    background: #c4c4c4 linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    background: #c4c4c4 -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+    background: #c4c4c4 -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    color: #333;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.ui-paginator .ui-paginator-current, .ui-paginator .ui-paginator-rpp-options {
+    margin-left: 1em;
+    margin-right: 1em;
+    background-image: none;
+}
+
+.ui-paginator .ui-paginator-page, .ui-paginator .ui-paginator-pages, .ui-paginator .ui-paginator-next, .ui-paginator .ui-paginator-last, .ui-paginator .ui-paginator-first, .ui-paginator .ui-paginator-prev, .ui-paginator .ui-paginator-current {
+    display: inline-block;
+    padding: 2px 6px;
+    zoom: 1;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-decoration: none;
+    outline: 0;
+}
+
+.ui-paginator .ui-paginator-page, .ui-paginator .ui-paginator-next, .ui-paginator .ui-paginator-last, .ui-paginator .ui-paginator-first, .ui-paginator .ui-paginator-prev {
+    cursor: pointer;
+}
+.ui-paginator .ui-paginator-page, .ui-paginator .ui-paginator-pages, .ui-paginator .ui-paginator-next, .ui-paginator .ui-paginator-last, .ui-paginator .ui-paginator-first, .ui-paginator .ui-paginator-prev, .ui-paginator .ui-paginator-current {
+    display: inline-block;
+    padding: 2px 6px;
+    zoom: 1;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-decoration: none;
+    outline: 0;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #a8a8a8;
+    background: #c4c4c4 url(/MyPictureBootstrap/javax.faces.resource/images/ui-bg_highlight-hard_80_c4c4c4_1x100.png.xhtml?ln=primefaces-aristo) 50% 50% repeat-x;
+    background: #c4c4c4 linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    background: #c4c4c4 -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+    background: #c4c4c4 -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    font-weight: bold;
+    color: #4f4f4f;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #a8a8a8;
+    background: #c4c4c4 url(/MyPictureBootstrap/javax.faces.resource/images/ui-bg_highlight-hard_80_c4c4c4_1x100.png.xhtml?ln=primefaces-aristo) 50% 50% repeat-x;
+    background: #c4c4c4 linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    background: #c4c4c4 -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+    background: #c4c4c4 -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    font-weight: bold;
+    color: #4f4f4f;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #a8a8a8;
+    background: #c4c4c4 url(/MyPictureBootstrap/javax.faces.resource/images/ui-bg_highlight-hard_80_c4c4c4_1x100.png.xhtml?ln=primefaces-aristo) 50% 50% repeat-x;
+    background: #c4c4c4 linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    background: #c4c4c4 -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+    background: #c4c4c4 -moz-linear-gradient(top,rgba(255,255,255,0.8),rgba(255,255,255,0));
+    font-weight: bold;
+    color: #4f4f4f;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+.ui-state-default {
+    -moz-box-shadow: inset 0 1px 0 #fff;
+    -webkit-box-shadow: inset 0 1px 0 #fff;
+    box-shadow: inset 0 1px 0 #fff;
+}
+.ui-state-default {
+    -moz-box-shadow: inset 0 1px 0 #fff;
+    -webkit-box-shadow: inset 0 1px 0 #fff;
+    box-shadow: inset 0 1px 0 #fff;
+}
+.ui-state-default {
+    -moz-box-shadow: inset 0 1px 0 #fff;
+    -webkit-box-shadow: inset 0 1px 0 #fff;
+    box-shadow: inset 0 1px 0 #fff;
+}
+
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+    opacity: .35;
+    filter: Alpha(Opacity=35);
+    background-image: none;
+}
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+    opacity: .35;
+    filter: Alpha(Opacity=35);
+    background-image: none;
+}
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+    opacity: .35;
+    filter: Alpha(Opacity=35);
+    background-image: none;
+}
+.ui-state-disabled {
+    cursor: default!important;
+    pointer-events: none;
+}
+
+.ui-paginator .ui-paginator-next .ui-icon, .ui-paginator .ui-paginator-prev .ui-icon, .ui-paginator .ui-paginator-first .ui-icon, .ui-paginator .ui-paginator-last .ui-icon {
+    height: auto;
+    overflow: inherit;
+}
+.ui-state-default .ui-icon {
+    background-image: url(/MyPictureBootstrap/javax.faces.resource/images/ui-icons_38667f_256x240.png.xhtml?ln=primefaces-aristo);
+}
+.ui-widget-header .ui-icon {
+    background-image: url(/MyPictureBootstrap/javax.faces.resource/images/ui-icons_898989_256x240.png.xhtml?ln=primefaces-aristo);
+}
+.ui-state-default .ui-icon {
+    background-image: url(/MyPictureBootstrap/javax.faces.resource/images/ui-icons_38667f_256x240.png.xhtml?ln=primefaces-aristo);
+}
+.ui-widget-header .ui-icon {
+    background-image: url(/MyPictureBootstrap/javax.faces.resource/images/ui-icons_898989_256x240.png.xhtml?ln=primefaces-aristo);
+}
+.ui-state-default .ui-icon {
+    background-image: url(/MyPictureBootstrap/javax.faces.resource/images/ui-icons_38667f_256x240.png.xhtml?ln=primefaces-aristo);
+}
+.ui-widget-header .ui-icon {
+    background-image: url(/MyPictureBootstrap/javax.faces.resource/images/ui-icons_898989_256x240.png.xhtml?ln=primefaces-aristo);
+}
+.ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url(/MyPictureBootstrap/javax.faces.resource/images/ui-icons_616161_256x240.png.xhtml?ln=primefaces-aristo);
+}
+.ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url(/MyPictureBootstrap/javax.faces.resource/images/ui-icons_616161_256x240.png.xhtml?ln=primefaces-aristo);
+}
+.ui-icon {
+    display: block;
+    vertical-align: baseline;
+    margin-top: 0;
+}
+.ui-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -.25em;
+    position: relative;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+.ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url(/MyPictureBootstrap/javax.faces.resource/images/ui-icons_616161_256x240.png.xhtml?ln=primefaces-aristo);
+}
+
+.ui-icon-seek-first {
+    background-position: -80px -160px;
+}
+.ui-icon-seek-first {
+    background-position: -80px -160px;
+}
+.ui-icon-seek-first {
+    background-position: -80px -160px;
+}
+
+.ui-paginator .ui-paginator-page, .ui-paginator .ui-paginator-next, .ui-paginator .ui-paginator-last, .ui-paginator .ui-paginator-first, .ui-paginator .ui-paginator-prev {
+    cursor: pointer;
+}
+.ui-paginator .ui-paginator-page, .ui-paginator .ui-paginator-pages, .ui-paginator .ui-paginator-next, .ui-paginator .ui-paginator-last, .ui-paginator .ui-paginator-first, .ui-paginator .ui-paginator-prev, .ui-paginator .ui-paginator-current {
+    display: inline-block;
+    padding: 2px 6px;
+    zoom: 1;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-decoration: none;
+    outline: 0;
+}*/
+
+
+
+
+
+
+
+

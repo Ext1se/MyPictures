@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+
+</h:head>
+<h:body>
+    <ui:composition template="/templates/template.xhtml">
+        <ui:define name="title">
+            Add image
+        </ui:define>
+
+        <ui:define name="content">
+            #{imageController.clearImage()}
+            <div class="offset-1 col-10">
+                <h2 class="d-flex justify-content-center">Добавление изобажения</h2>
+                <h:form id="form" class="card card-body" enctype="multipart/form-data">
+                    <p:messages id="messages"></p:messages>
+                    <div class="form-group">
+                        <p class="col control-label"> Название: <i class="text-danger"> *</i></p>
+                        <div class="col">
+                            <p:inputText styleClass="form-control" id="name" value="#{imageController.image.name}"
+                                         maxlength="50"
+                                         required="true" requiredMessage="Введите название изображения">
+                            </p:inputText>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="col control-label">Описание:</p>
+                        <div class="col">
+                            <p:inputTextarea styleClass="form-control" id="description"
+                                             value="#{imageController.image.description}" maxlength="400"/>
+                        </div>
+                    </div>
+
+                    <h:panelGroup id="imagePreview" class="form-group">
+                        <div class="col d-flex justify-content-center">
+                            <h:outputLink value="#{request.contextPath}/ShowPicture?image=image_preview" target="_blank">
+                                <p:graphicImage value="/ShowPicture?image=image_preview" width="512px" cache="false" class="rounded"/>
+                            </h:outputLink>
+                        </div>
+                    </h:panelGroup>
+
+                    <div class="form-group">
+                        <p:fileUpload id="file" mode="advanced"
+                                      class="btn w-100"
+                                      fileUploadListener="#{fileUploader.upload}"
+                                      label="Выберите изображение"
+                                      multiple="false"
+                                      auto="true"
+                                      allowTypes="/\.(gif|jpe?g|png)$/"
+                                      sizeLimit="12000000"
+                                      update="imagePreview"/>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col">
+                            <p:commandButton value="Добавить" class="w-100 btn btn-success"
+                                             action="#{imageController.addImage()}" update="form">
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
+

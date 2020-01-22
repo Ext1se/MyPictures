@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+</h:head>
+
+<h:body>
+    <h:form id="searchForm">
+        <div class="offset-1 col-9" style="margin-bottom: 20px;">
+            <p:messages id="messages"></p:messages>
+            <div class="input-group">
+                <p:inputText class="form-control" placeholder="Поиск..." id="search" value="#{imageController.search}"
+                             maxlength="20"
+                             validatorMessage="Для поиска нужно минимум 3 символа" required="false">
+                    <f:validateLength minimum="3"/>
+                </p:inputText>
+                <div class="input-group-append">
+                    <p:commandButton class="btn btn btn-outline-primary" value="Найти"
+                                     action="#{imageController.searchImages()}"
+                                     update="cardForm searchForm"/>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+</html>
+

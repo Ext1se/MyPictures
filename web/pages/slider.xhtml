@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+    <h:form id="imageForm">
+        <div id="modalImage" class="modal-image">
+            <span class="image-action image-close" onclick="closeImageModal()">&times;</span>
+            <p:outputPanel id="modalImageContent" class="modal-image-content">
+                <div class="row">
+                    <div class="col-1 d-flex align-items-center">
+                        <p:commandLink action="#{imageController.getPreviousImage()}"
+                                       rendered="#{imageController.hasPrevious}"
+                                       class="image-action image-left" value="&lt;"
+                                       update="modalImageContent">
+                        </p:commandLink>
+                    </div>
+
+                    <div class="col-7">
+                        <h:outputLink value="#{request.contextPath}/ShowPicture?image=image_max&amp;id=#{imageController.image.id}"  target="_blank">
+                            <h:graphicImage value="/ShowPicture?image=image_max&amp;id=#{imageController.image.id}" width="100%"/>
+                        </h:outputLink>
+                    </div>
+
+                    <div class="col-3 modal-image-header">
+                        <div class="row">
+
+                            <div class="col-3">
+                                <p:graphicImage value="/ShowPicture?image=owner&amp;id=#{imageController.image.id}"
+                                                class="rounded-circle" width="64" height="64"
+                                                rendered="#{imageController.image.owner.photoMin != null}"
+                                                cache="false"/>
+                                <p:graphicImage library="assets" name="user.png" class="rounded-circle" width="64"
+                                                height="64"
+                                                rendered="#{imageController.image.owner.photoMin == null}"/>
+                            </div>
+
+                            <div class="col-9">
+                                <h5 class="card-title">#{imageController.image.owner.username}</h5>
+                                <h:outputText value="#{imageController.image.owner.email}" class="text-secondary"/>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">#{imageController.image.name}</h5>
+                                <h:outputText class="modal-image-description" value="#{imageController.image.description}"/>
+
+                                <h:panelGroup id="modalLikesViews">
+                                    <div class="card-margin-button">
+                                        <h:graphicImage library="assets" name="likes.png"/>
+                                        <h:outputText class="card-margin-text" value="#{imageController.image.likes}"/>
+                                        <h:graphicImage class="card-margin-text" library="assets"
+                                                        name="views_black.png"/>
+                                        <h:outputText class="card-margin-text" value="#{imageController.image.views}"/>
+                                    </div>
+                                </h:panelGroup>
+
+                                <!-- ################################ -->
+
+                                <h:panelGroup id="modalLikeButton"
+                                              rendered="#{request.remoteUser != null and request.requestURI != '/MyPictures_war_exploded/pages/my-likes.xhtml'}">
+                                    <p:commandLink styleClass="btn btn-primary w-100 card-margin-button"
+                                                   action="#{imageController.likeImage(imageController.image.id)}"
+                                                   rendered="#{!imageController.image.isFavorite}"
+                                                   update="modalLikesViews modalLikeButton @([id$=cardLikeButton]) @([id$=cardLikesViews])">
+                                        <p:graphicImage library="assets" name="favorite_white_false.png"/>
+                                        <h:outputText value="Оценить" class="card-margin-text "/>
+                                    </p:commandLink>
+
+                                    <p:commandLink styleClass="btn btn-primary w-100 card-margin-button"
+                                                   action="#{imageController.dislikeImage(imageController.image.id)}"
+                                                   rendered="#{imageController.image.isFavorite}"
+                                                   update="modalLikesViews modalLikeButton @([id$=cardLikeButton]) @([id$=cardLikesViews])">
+                                        <p:graphicImage library="assets" name="favorite_white_true.png"/>
+                                        <h:outputText value="Оценить" class="card-margin-text "/>
+                                    </p:commandLink>
+                                </h:panelGroup>
+
+                                <!-- ################################ -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1 d-flex align-items-center">
+                        <p:commandLink action="#{imageController.getNextImage()}" rendered="#{imageController.hasNext}"
+                                       class="image-action image-right" value="&gt;"
+                                       update="modalImageContent"/>
+                    </div>
+                </div>
+            </p:outputPanel>
+        </div>
+    </h:form>
+</h:body>
+</html>
+

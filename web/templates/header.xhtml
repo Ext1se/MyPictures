@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://java.sun.com/jsp/jstl/core">
+<h:head>
+
+</h:head>
+<h:body>
+    <ui:composition>
+        <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <h:outputLink value="#{request.contextPath}/pages/images.xhtml" styleClass="nav-link">
+                            MyPicture
+                        </h:outputLink>
+                    </li>
+                    <o:if test="#{not empty request.remoteUser}">
+                        <li class="nav-item">
+                            <h:outputLink value="#{request.contextPath}/pages/my-images.xhtml" styleClass="nav-link">
+                                Мои публикации
+                            </h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink value="#{request.contextPath}/pages/my-likes.xhtml" styleClass="nav-link">
+                                Мои любимые
+                            </h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink value="#{request.contextPath}/pages/my-profile.xhtml" styleClass="nav-link">
+                                Мой профиль
+                            </h:outputLink>
+                        </li>
+                        <o:if test="#{request.isUserInRole('ADMIN')}">
+                            <li class="nav-item">
+                                <h:outputLink value="#{request.contextPath}/pages/logs.xhtml" target="_blank" styleClass="nav-link">
+                                    Логи
+                                </h:outputLink>
+                            </li>
+                        </o:if>
+                    </o:if>
+                </ul>
+
+
+                <o:if test="#{not empty request.remoteUser}">
+                    <div class="form-inline my-3 my-lg-0">
+                        <div>
+                            <p:graphicImage value="/ShowPicture?image=user_min" class="rounded-circle" width="32"
+                                            height="32" rendered="#{userController.user.photoMin != null}"/>
+                            <p:graphicImage library="assets" name="user.png" class="rounded-circle" width="32"
+                                            height="32" rendered="#{userController.user.photoMin == null}"/>
+                        </div>
+                        <h:outputLabel class="col control-label text-light" value="#{request.remoteUser}"/>
+                        <h:outputLabel class="col control-label text-light" value="id=#{userController.user.id}"/>
+                        <h:outputLabel class="col control-label text-light" value="ADMIN"
+                                       rendered="#{request.isUserInRole('ADMIN')}"/>
+                        <h:outputLabel class="col control-label text-light" value="USER"
+                                       rendered="#{request.isUserInRole('USER')}"/>
+                        <h:form>
+                            <p:commandButton action="#{userController.logout()}" styleClass="btn btn-light my-2 my-sm-0"
+                                             value="Выйти"/>
+                        </h:form>
+                    </div>
+                </o:if>
+
+                <o:if test="#{empty request.remoteUser}">
+                    <div class="form-inline my-3 my-lg-0">
+                        <h:outputLink styleClass="btn btn-light my-2 my-sm-0"
+                                      value="#{request.contextPath}/pages/sign-in.xhtml">
+                            Войти
+                        </h:outputLink>
+                        <h:outputLink styleClass="btn btn-light my-2 my-sm-0 card-margin-text"
+                                      value="#{request.contextPath}/pages/sign-up.xhtml">
+                            Регистрация
+                        </h:outputLink>
+                    </div>
+                </o:if>
+            </div>
+        </div>
+    </ui:composition>
+</h:body>
+</html>
+

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+</h:head>
+<h:body>
+    <ui:composition template="/templates/template.xhtml">
+        <ui:define name="title">
+            Registration
+        </ui:define>
+        <ui:define name="content">
+            <div class="offset-3 col-6">
+                <h:form id="form" class="card card-body" enctype="multipart/form-data">
+                    <h2 class="d-flex justify-content-center">Регистрация</h2>
+                    <p:messages id="messages"></p:messages>
+
+                    <div class="form-group">
+                        <p class="col control-label"> Логин: <i class="text-danger"> *</i></p>
+                        <div class="col">
+                            <p:inputText styleClass="form-control" id="username" value="#{userController.user.username}"
+                                         required="true" requiredMessage="Введите логин" maxlength="30"
+                                         validatorMessage="Логин может содержать латинские буквы и цифры, первый символ обязательно буква">
+                                <f:validateRegex pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"/>
+                            </p:inputText>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="col control-label">E-mail: <i class="text-danger"> *</i></p>
+                        <div class="col">
+                            <p:inputText styleClass="form-control" id="email" value="#{userController.user.email}"
+                                         required="true" requiredMessage="Введите email" maxlength="40"
+                                         validatorMessage="Некорректный email">
+                                <f:validateRegex pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"/>
+                            </p:inputText>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel styleClass="col control-label" value="Имя:"/>
+                        <div class="col">
+                            <p:inputText styleClass="form-control" id="first_name"
+                                         value="#{userController.user.firstName}" maxlength="20"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel styleClass="col control-label" value="Фамилия:"/>
+                        <div class="col">
+                            <p:inputText styleClass="form-control" id="last_name"
+                                         value="#{userController.user.lastName}" maxlength="20"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="col control-label"> Пароль: <i class="text-danger"> *</i></p>
+                        <div class="col">
+                            <h:inputSecret styleClass="form-control" id="password_1"
+                                           value="#{userController.user.password}"
+                                           required="true" requiredMessage="Введите пароль" maxlength="100"
+                                           validatorMessage="Пароль должен содержать минимум 6 символов, включая строчные и прописные латинские буквы и цифры">
+                                <f:validateRegex pattern="^(?=^.{6,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/>
+                            </h:inputSecret>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="col control-label">Подтверждение пароля: <i class="text-danger"> *</i></p>
+                        <div class="col">
+                            <h:inputSecret styleClass="form-control" id="password_2"
+                                           value="#{userController.user.passwordRepeat}" maxlength="100"
+                                           required="true" requiredMessage="Повторите пароль"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col">
+                            <p:commandButton value="Зарегистрироваться" class="w-100 btn btn-success"
+                                             action="#{userController.validateUser()}"
+                                             update="form" ajax="true">
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
+

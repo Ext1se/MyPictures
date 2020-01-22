@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+</h:head>
+
+<h:body>
+    <ui:composition template="/templates/template.xhtml">
+        <ui:define name="title">
+            Images
+        </ui:define>
+
+        <ui:define name="content">
+            #{imageController.updateFavoriteImages()}
+            <h:form id="cardForm">
+                <div class="">
+                    <p:dataGrid rowIndexVar="rowIndex" lazy="true" value="#{imageController.imagesDataModel}"
+                                var="image" columns="5" layout="grid" styleClass="books_list"
+                                rows="5" paginatorAlwaysVisible="false" id="dataGrid"
+                                paginator="true"
+                                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                rowsPerPageTemplate="5,10,15">
+
+                        <div class="card card-shadow">
+                            <div class="container-card">
+                                <p:graphicImage value="/ShowPicture?image=image_min&amp;id=#{image.id}" class="card-img-top" cache="true"/>
+                                <p:commandLink
+                                        action="#{imageController.addView(image.id)}"
+                                        update="cardLikesViews :imageForm:modalImageContent"
+                                        oncomplete="showImageModal()">
+                                    <div class="overlay d-flex align-items-center justify-content-center">
+                                        <p:panel id="cardLikesViews">
+                                            <div>
+                                                <p:graphicImage library="assets" name="favorite_white_true.png"/>
+                                                <h:outputText value="#{image.likes}"
+                                                              class="text-light card-margin-text "/>
+                                            </div>
+                                            <div>
+                                                <p:graphicImage library="assets" name="views.png"/>
+                                                <h:outputText value="#{image.views}"
+                                                              class="text-light card-margin-text "/>
+                                            </div>
+                                        </p:panel>
+                                    </div>
+                                    <f:param name="id" value="#{image.id}"/>
+                                    <f:setPropertyActionListener value="#{image}" target="#{imageController.image}"/>
+                                </p:commandLink>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">#{image.name}</h5>
+                                <div class="card-text">
+                                    <p:graphicImage value="/ShowPicture?image=owner&amp;id=#{image.id}" class="rounded-circle"
+                                                    width="32" height="32"
+                                                    rendered="#{image.owner.photoMin != null}" cache="false"/>
+                                    <p:graphicImage library="assets" name="user.png" class="rounded-circle" width="32"
+                                                    height="32"
+                                                    rendered="#{image.owner.photoMin == null}"/>
+                                    <h:outputText value="#{image.owner.username}" class="card-margin-text"/>
+                                </div>
+                                <p:commandButton styleClass="btn btn-danger w-100 card-margin-button"
+                                                 action="#{imageController.dislikeImage(image.id)}"
+                                                 update="cardForm" value="Убрать">
+                                </p:commandButton>
+                            </div>
+                        </div>
+                    </p:dataGrid>
+                </div>
+            </h:form>
+
+            <ui:include src="slider.xhtml"/>
+
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
+
